@@ -1,12 +1,10 @@
 name: ⚙️Build C# Solution
 run-name: Build Velaptor Tutorials Solution
 
-
 defaults:
   run:
     shell: pwsh
-  
-  
+
 on:
   workflow_call:
     inputs:
@@ -24,7 +22,6 @@ on:
         description: The git reference to checkout the code at.
         type: string
         default: ${{ github.ref }}
-
 
 jobs:
   print_validate_workflow:
@@ -59,7 +56,6 @@ jobs:
             exit 1;
           }
 
-
   build_solution:
     name: Build Velaptor Tutorials Solution
     runs-on: ubuntu-latest
@@ -71,7 +67,7 @@ jobs:
           ref: ${{ inputs.checkout-ref }}
 
       - name: Setup dotnet SDK ${{ vars.NET_SDK_VERSION }}
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: ${{ vars.NET_SDK_VERSION }}
 
