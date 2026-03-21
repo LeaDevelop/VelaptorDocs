@@ -1,7 +1,13 @@
 {
     "cSpell.words": [
         "Argb",
+        "Aseprite",
+        "brinstar",
+        "buildtransitive",
+        "contentfiles",
         "Kinson",
+        "metroid",
+        "stylecop",
         "Velaptor"
     ],
     "files.exclude": {
@@ -16,5 +22,6 @@
         "**/bin": true,
         "**/obj": true,
         "*.sln.DotSettings.user": true
-    }
+    },
+    "dotnet.defaultSolution": "SampleProjects.sln"
 }

@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "docusaurus": "docusaurus",
-        "start": "pnpm i && docusaurus start",
+        "dev": "pnpm i && docusaurus start",
         "build": "pnpm i && docusaurus build",
         "swizzle": "docusaurus swizzle",
         "deploy": "docusaurus deploy",
@@ -14,7 +14,8 @@
         "typecheck": "tsc",
         "clean": "docusaurus clear && deno eval \"Deno.removeSync('./node_modules', { recursive: true });\"",
         "reinstall-deps": "pnpm clear && pnpm clean && pnpm install",
-        "preinstall": "npx only-allow pnpm"
+        "preinstall": "npx only-allow pnpm",
+        "create-pr": "deno run -c ./deno.json --node-modules-dir=false -A jsr:@kinsondigital/sprocket@3.0.0 run-job ./dev-tools/sprocket-config.ts --job-name Create-PR"
     },
     "pnpm": {
         "onlyBuiltDependencies": [
@@ -24,6 +25,7 @@
     },
     "dependencies": {
         "@docusaurus/core": "3.9.2",
+        "@docusaurus/plugin-content-docs": "^3.9.2",
         "@docusaurus/preset-classic": "3.9.2",
         "@docusaurus/theme-mermaid": "3.9.2",
         "@mdx-js/react": "^3.0.0",
@@ -32,14 +34,16 @@
         "postcss": "^8.4.38",
         "prism-react-renderer": "^2.3.0",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "rehype-katex": "^7.0.1",
+        "remark-math": "^6.0.0"
     },
     "devDependencies": {
         "@docusaurus/module-type-aliases": "^3.2.1",
         "@docusaurus/tsconfig": "^3.2.1",
         "@docusaurus/types": "3.9.2",
-        "@types/react": "^18.2.42",
         "@tailwindcss/postcss": "^4.1.17",
+        "@types/react": "^18.2.42",
         "tailwindcss": "^4.1.17",
         "typescript": "~5.6.0"
     },
