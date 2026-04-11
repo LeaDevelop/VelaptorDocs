@@ -46,7 +46,7 @@ const config: Config = {
 					sidebarPath: require.resolve('./sidebars.js'),
 					// Please change this to your repo.
 					// Remove this to remove the "edit this page" links.
-					editUrl: 'https://github.com/KinsonDigital/Velaptor',
+					editUrl: 'https://github.com/KinsonDigital/VelaptorDocs/edit/main/',
 					includeCurrentVersion: true,
 					remarkPlugins: [remarkMath],
 					rehypePlugins: [rehypeKatex]
@@ -54,7 +54,11 @@ const config: Config = {
 				theme: {
 					customCss: require.resolve('./src/css/custom.css'),
 				},
-				blog: false,
+				blog: {
+					showReadingTime: true,
+					blogSidebarTitle: 'All Our Posts',
+					blogSidebarCount: 10,
+				},
 			} satisfies Preset.Options,
 		],
 	],
@@ -159,7 +163,18 @@ const config: Config = {
 						position: 'left',
 						label: 'API',
 					},
-					// </flag>
+					{
+						to: 'blog',
+						label: 'Blog',
+						position: 'left',
+						items: [
+							{ to: '/blog', label: 'All Our Posts' },
+							{ to: '/blog/tags', label: 'Browse by Tag' },
+							{ to: '/blog/tags/velaptor', label: 'Velaptor' },
+							{ to: '/blog/tags/velaptor-aseprite', label: 'VelaptorAseprite' },
+							{ to: '/blog/tags/velaptor-templates', label: 'VelaptorTemplates' },
+						],
+					},
 					{
 						type: 'docsVersionDropdown',
 						position: 'right',
@@ -174,6 +189,16 @@ const config: Config = {
 						href: 'https://discord.gg/qewu6fNgv7',
 						position: 'right',
 						className: "header-discord-link"
+					},
+					{
+						href: 'https://x.com/KDCoder',
+						position: 'right',
+						className: "header-x-link"
+					},
+					{
+						href: 'https://bsky.app/profile/kdcoder.bsky.social',
+						position: 'right',
+						className: "header-bluesky-link"
 					},
 				],
 			},
@@ -205,6 +230,9 @@ const config: Config = {
 							},
 							{
 								html: `<a href='https://x.com/KDCoder' target='_blank'>X (Twitter)</a>`,
+							},
+							{
+								html: `<a href='https://bsky.app/profile/kdcoder.bsky.social' target='_blank'>Bluesky</a>`,
 							},
 						],
 					},
@@ -257,4 +285,5 @@ const config: Config = {
 		tailwindPlugin,
 	]
 };
+
 module.exports = config;
